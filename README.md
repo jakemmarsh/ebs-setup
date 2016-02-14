@@ -22,6 +22,11 @@ option_settings:
     value: 0.12.9
 
 files:
+  "/opt/elasticbeanstalk/env.vars" :
+    mode: "000775"
+    owner: root
+    group: users
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-build-hooks/master/env.vars
   "/opt/elasticbeanstalk/hooks/configdeploy/pre/40install_node.sh" :
     mode: "000775"
     owner: root

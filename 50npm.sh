@@ -14,5 +14,5 @@ if [ -d /tmp/deployment/application ]; then
   ln -s /var/node_modules /tmp/deployment/application/
 fi
 
-OUT=$([ -d "/tmp/deployment/application" ] && cd /tmp/deployment/application && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm install 2>&1) || error_exit "Failed to run npm install.  $OUT" $?
+OUT=$([ -d "/tmp/deployment/application" ] && cd /tmp/deployment/application && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm install --production 2>&1) || error_exit "Failed to run npm install.  $OUT" $?
 echo $OUT

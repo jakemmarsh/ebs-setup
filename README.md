@@ -19,7 +19,7 @@ option_settings:
     value: production
   - namespace: aws:elasticbeanstalk:container:nodejs
     option_name: NodeVersion
-    value: 0.12.7
+    value: 0.12.9
 
 files:
   "/opt/elasticbeanstalk/hooks/configdeploy/pre/40install_node.sh" :

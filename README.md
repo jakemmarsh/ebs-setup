@@ -19,7 +19,7 @@ option_settings:
     value: production
   - namespace: aws:elasticbeanstalk:container:nodejs
     option_name: NodeVersion
-    value: 0.12.9
+    value: 4.2.3
 
 files:
   "/opt/elasticbeanstalk/env.vars" :

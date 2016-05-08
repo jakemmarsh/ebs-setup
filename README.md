@@ -48,7 +48,7 @@ files:
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/predeploy/predeploy/50npm.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/predeploy/50npm.sh
   "/opt/elasticbeanstalk/hooks/configdeploy/pre/50npm.sh" :
     mode: "000666"
     owner: root

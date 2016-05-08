@@ -36,21 +36,3 @@ echo " 5. Move and Configure Redis-Server"
 echo "*****************************************"
 sudo mv redis-server /etc/init.d
 sudo chmod 755 /etc/init.d/redis-server
-echo "*****************************************"
-echo " 6. Auto-Enable Redis-Server"
-echo "*****************************************"
-sudo chkconfig --add redis-server
-sudo chkconfig --level 345 redis-server on
-echo "*****************************************"
-echo " 7. Start Redis Server"
-echo "*****************************************"
-sudo service redis-server start
-echo "*****************************************"
-echo " Complete!"
-echo " You can test your redis installation using the redis console:"
-echo "   $ src/redis-cli"
-echo "   redis> set foo bar"
-echo "   OK"
-echo "   redis> get foo"
-echo "   bar"
-echo "*****************************************"

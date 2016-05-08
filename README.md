@@ -43,12 +43,12 @@ files:
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/40install_node.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/predeploy/40install_node.sh
   "/opt/elasticbeanstalk/hooks/appdeploy/pre/50npm.sh" :
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/50npm.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/predeploy/predeploy/50npm.sh
   "/opt/elasticbeanstalk/hooks/configdeploy/pre/50npm.sh" :
     mode: "000666"
     owner: root
@@ -59,10 +59,15 @@ files:
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/40install_node.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/predeploy/40install_node.sh
   "/opt/elasticbeanstalk/hooks/appdeploy/pre/70install_redis.sh" :
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/70install_redis.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/predeploy/70install_redis.sh
+  "/opt/elasticbeanstalk/hooks/appdeploy/post/00redis_server.sh" :
+    mode: "000775"
+    owner: root
+    group: users
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/postdeploy/00redis_server.sh
 ```

@@ -30,7 +30,7 @@ sudo sed -e "s/^daemonize no$/daemonize yes/" -e "s/^# bind 127.0.0.1$/bind 127.
 echo "*****************************************"
 echo " 4. Download init Script"
 echo "*****************************************"
-sudo wget https://gist.githubusercontent.com/four43/c8bdd494292dcb1e2d38/raw/redis-server
+sudo wget https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/redis-server
 echo "*****************************************"
 echo " 5. Move and Configure Redis-Server"
 echo "*****************************************"

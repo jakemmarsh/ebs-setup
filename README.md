@@ -1,6 +1,10 @@
-# ebs-build-hooks
+# ebs-setup
 
-Custom build hooks for Elastic Beanstalk for optimizing NPM dependency installation, inspired by [this](http://stackoverflow.com/a/21260702/880859) StackOverflow anwer.
+Custom build hooks and scripts for Elastic Beanstalk:
+
+- Optimizing NPM dependency installation, inspired by [this](http://stackoverflow.com/a/21260702/880859) StackOverflow anwer
+- Customizing nginx proxy settings
+- Installing and starting redis-server
 
 ## Usage
 
@@ -11,6 +15,9 @@ packages:
   yum:
     git: []
     gcc: []
+    gcc-c++: []
+    libxml2: []
+    libxml2-devel: []
     make: []
     openssl-devel: []
 
@@ -19,24 +26,29 @@ option_settings:
     value: production
   - namespace: aws:elasticbeanstalk:container:nodejs
     option_name: NodeVersion
-    value: 4.2.3
+    value: 4.3.0
 
 files:
+  "/tmp/deployment/config/etc#nginx#nginx.conf" :
+    mode: "000775"
+    owner: root
+    group: users
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/nginx.conf
   "/opt/elasticbeanstalk/env.vars" :
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-build-hooks/master/env.vars
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/env.vars
   "/opt/elasticbeanstalk/hooks/configdeploy/pre/40install_node.sh" :
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-build-hooks/master/40install_node.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/40install_node.sh
   "/opt/elasticbeanstalk/hooks/appdeploy/pre/50npm.sh" :
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-build-hooks/master/50npm.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/50npm.sh
   "/opt/elasticbeanstalk/hooks/configdeploy/pre/50npm.sh" :
     mode: "000666"
     owner: root
@@ -47,5 +59,10 @@ files:
     mode: "000775"
     owner: root
     group: users
-    source: https://raw.githubusercontent.com/jakemmarsh/ebs-build-hooks/master/40install_node.sh
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/40install_node.sh
+  "/opt/elasticbeanstalk/hooks/appdeploy/pre/70install_redis.sh" :
+    mode: "000775"
+    owner: root
+    group: users
+    source: https://raw.githubusercontent.com/jakemmarsh/ebs-setup/master/70install_redis.sh
 ```
